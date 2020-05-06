@@ -1,0 +1,265 @@
+*{
+	position: relative;
+	box-sizing: border-box;
+	font-family: arial;
+}
+html,body{
+	height: 100%
+}
+.wrapper{
+	height: 100%;
+	background: linear-gradient(#4c68d7,#8a3ab9,#bc2a8d,#cd486b,#fbad50,#fccc63);
+	
+	}
+.camera{
+	width: 200px;
+	height: 200px;
+	border: 10px solid #fff;
+	border-radius: 50px;
+
+	position: absolute;
+	left: 50%;
+	top:50%;
+	transform: translate(-50%,-50%);
+	animation: BeCircle 0.5s 0.5s ease-in both,ballDown 0.3s 1s forwards,cameraIn 0.2s 1.3s forwards;
+	perspective: 500;
+	}
+@keyframes BeCircle{
+	0%{
+	width: 5px;
+	height: 5px;
+	top: 50%;
+	opacity: 0;
+	}
+	10%{
+		opacity: 1;
+	}
+	100%{
+	width: 5px;
+	height: 5px;
+	top: 10%;
+	}
+}
+@keyframes ballDown{
+	0%{
+		top: 10%;
+	}
+	100%{
+		top: 50%;
+	}
+}
+@keyframes cameraIn{
+	0%{
+		
+	}
+	80%{
+		width: 250px;
+		height: 250px;
+	}
+	100%{
+		width: 200px;
+		height: 200px;
+	}
+}
+.lens{
+	width: 100px;
+	height: 100px;
+	border:10px solid #fff;
+	border-radius: 50%;
+
+	position: absolute;
+	left: 50%;
+	top:50%;
+	transform: translate(-50%,-50%);
+	animation: Gone 0.2s 1.4s both;
+}
+@keyframes Gone{
+	0%{
+		width:0;
+		height: 0;
+		opacity: 0;
+	}
+	10%{
+		opacity: 1;
+	}
+	80%{
+		width:120px;
+		height: 120px;
+	}
+	100%{
+		width:100px;
+		height: 100px;
+	}
+}
+.flashlight{
+	width: 20px;
+	height: 20px;
+	background-color: #fff;
+	border-radius: 50%;
+	position: absolute;
+	right: 20px;
+	top: 20px;
+	animation: flashlightgone 0.2s 1.7s both;
+}
+.flashlight:after{
+	content: "";
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+	background-color: rgba(256,256,256,0.5);
+
+	position: absolute;
+	left: 50%;
+	top:50%;
+	transform: translate(-50%,-50%);
+	opacity: 0;
+	animation: Flash 0.3s 1.9s;
+}
+@keyframes Flash{
+	0%{
+		opacity: 1;
+	}
+	25%{
+		opacity: 0;
+	}
+	50%{
+		opacity: 1;
+	}
+	100%{
+		opacity: 0;
+	}
+}
+@keyframes flashlightgone{
+	0%{
+		transform: scale(0);
+	}
+	
+	100%{
+		transform: scale(1);
+	}
+}
+.picture{
+	width: 250px;
+	height: 250px;
+	border: 10px solid white;
+	border-bottom: 20px solid white;
+	background-color: #ccc;
+	position: absolute;
+	left: 50%;
+	top:50%;
+	transform: translate(-50%,-50%);
+	animation: pictureout 0.5s 2.2s backwards,pictureFlip 0.5s 2.7s linear;
+	overflow: hidden;
+	transition: 0.5s;
+}
+.picture:hover{
+	width: 400px;
+	height: 400px;
+	background-color: #fff;
+	padding: 10px;
+	box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+}
+
+.imgBox{
+	height: 300px;
+	overflow: hidden;
+}
+.imgBox img{
+	width: 100%;
+	animation: ImgGone 0.2s 3.2s backwards;
+}
+@keyframes ImgGone{
+	0%{
+		opacity: 0;
+	}
+	100%{
+		opacity: 1;
+	}
+}
+@keyframes pictureout{
+	0%{
+		height: 0;
+		width: 120px;
+		top: 100%;
+		transform: translate(-50%,0);
+		opacity: 0;
+	}
+	100%{
+		height: 100px;
+		width: 120px;
+		top: 100%;
+		transform: translate(-50%,0);
+		opacity: 1;
+	}
+}
+@keyframes pictureFlip{
+	0%{
+		height: 100px;
+		width: 120px;
+		transform: translate(-50%,0) rotateX(0deg);
+		top: 100%;
+	}
+	100%{
+		transform: translate(-50%,-50%) rotateX(360deg);
+		top: 50%;
+		width: 250px;
+		height: 250px;
+	}
+}
+.Intro h1{
+	margin: 0;
+	font-size: 24px;
+	line-height: 40px;
+}
+.Intro h2{
+	margin: 0;
+	font-size: 16px;
+	line-height: 25px;
+}
+.Intro{
+	opacity: 0;
+	transform: translate(-20%);
+
+}
+.picture:hover .Intro{
+	opacity: 1;
+	transition: all 0.5s 0.3s;
+	transform: translate(0%);
+}
+@keyframes wordAnimation{
+	0%{
+	opacity: 0;
+	}
+	100%{
+	opacity: 1;
+	}
+}
+.mouse{
+	width: 20px;
+	height: 20px;
+	background-size: cover;
+	background-image: url(https://lh3.googleusercontent.com/proxy/Zq_gZ-4yGYle0f92B7JRPaGut_A0G-mz7VOCT8OmOz21WdZSK4UeYpFWWmfcuae_SBKx-yYMTo_5LKq6TMZUpxKA-aLH7yfy3ygFx76cQ9Eiq0fJLHOTVX5K4op3rj68uWPy5Q);
+	position: absolute;
+	left: 50%;
+	top: 100%;
+	transform: translate(-50%,0);
+	animation: mouseHover 1s 3.2s infinite;
+	opacity: 0;
+}
+@keyframes mouseHover{
+	0%{
+	top: 150%;
+	}
+	40%{
+	opacity: 1;
+	}
+	80%{
+	opacity: 1;
+	}
+	100%{
+	top: 50%;
+	}
+}
+.picture:hover ~ .mouse{
+	visibility: hidden;
+}
